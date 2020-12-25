@@ -22,6 +22,16 @@ public class Main {
             i++;
         }
         System.out.println("]");
+
+        int[] arr3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        processArr(arr3);
+        System.out.print("[ ");
+        i = 0;
+        while (i < arr3.length) {
+            System.out.printf("%d, ", arr3[i]);
+            i++;
+        }
+        System.out.println("]");
     }
 
     public static void reverseValArray(int[] arr) {
@@ -40,6 +50,16 @@ public class Main {
         int i = 0;
         while (i < arr.length) {
             arr[i] = i * 3;
+            i++;
+        }
+    }
+
+    public static void processArr(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
+            if (arr[i] < 6) {
+                arr[i] = arr[i] * 2;
+            }
             i++;
         }
     }
