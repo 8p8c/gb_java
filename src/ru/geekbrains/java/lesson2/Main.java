@@ -32,6 +32,23 @@ public class Main {
             i++;
         }
         System.out.println("]");
+
+        int matrixSize = 5;
+        int matrix[][] = new int[matrixSize][matrixSize];
+        fillMatrixDiagonals(matrix);
+        i = 0;
+        int j;
+        while (i < matrixSize)
+        {
+            j = 0;
+            while (j < matrixSize)
+            {
+                System.out.printf("%d ", matrix[i][j]);
+                j++;
+            }
+            System.out.println();
+            i++;
+        }
     }
 
     public static void reverseValArray(int[] arr) {
@@ -59,6 +76,23 @@ public class Main {
         while (i < arr.length) {
             if (arr[i] < 6) {
                 arr[i] = arr[i] * 2;
+            }
+            i++;
+        }
+    }
+
+    public static void fillMatrixDiagonals(int[][] matrix) {
+        int i = 0;
+        int j;
+        while (i < matrix.length) {
+            j = 0;
+            while (j < matrix[i].length) {
+                if ((i == j) || ((i + j + 1) == matrix.length)) {
+                    matrix[i][j] = 1;
+                } else {
+                    matrix[i][j] = 0;
+                }
+                j++;
             }
             i++;
         }
