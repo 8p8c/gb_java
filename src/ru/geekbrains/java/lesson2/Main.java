@@ -4,39 +4,27 @@ public class Main {
 
     public static void main(String[] args) {
         int[] onesAndZeros = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        printArray(onesAndZeros);
         reverseValArray(onesAndZeros);
-        int i = 0;
-        System.out.print("[ ");
-        while (i < onesAndZeros.length) {
-            System.out.printf("%d, ", onesAndZeros[i]);
-            i++;
-        }
-        System.out.println("]");
+        printArray(onesAndZeros);
+        System.out.println();
 
         int arr2[] = new int[8];
+        printArray(arr2);
         fillArray(arr2);
-        System.out.print("[ ");
-        i = 0;
-        while (i < arr2.length) {
-            System.out.printf("%d, ", arr2[i]);
-            i++;
-        }
-        System.out.println("]");
+        printArray(arr2);
+        System.out.println();
 
         int[] arr3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        printArray(arr3);
         processArr(arr3);
-        System.out.print("[ ");
-        i = 0;
-        while (i < arr3.length) {
-            System.out.printf("%d, ", arr3[i]);
-            i++;
-        }
-        System.out.println("]");
+        printArray(arr3);
+        System.out.println();
 
         int matrixSize = 5;
         int matrix[][] = new int[matrixSize][matrixSize];
         fillMatrixDiagonals(matrix);
-        i = 0;
+        int i = 0;
         int j;
         while (i < matrixSize)
         {
@@ -49,6 +37,15 @@ public class Main {
             System.out.println();
             i++;
         }
+        System.out.println();
+
+        printArray(onesAndZeros);
+        System.out.println(checkBalance(onesAndZeros));
+        printArray(arr2);
+        System.out.println(checkBalance(arr2));
+        printArray(arr3);
+        System.out.println(checkBalance(arr3));
+
     }
 
     public static void reverseValArray(int[] arr) {
@@ -96,5 +93,46 @@ public class Main {
             }
             i++;
         }
+    }
+
+    public static boolean checkBalance(int[] arr) {
+        if (arr.length < 2) {
+            return false;
+        }
+        int median = 1;
+        boolean result = false;
+        int leftSumm, rightSumm;
+        int i;
+        while ((median < arr.length) && !result) {
+            i = 0;
+            leftSumm = 0;
+            rightSumm = 0;
+            while (i < arr.length) {
+                if (i < median) {
+                    leftSumm += arr[i];
+                } else {
+                    rightSumm += arr[i];
+                }
+                i++;
+            }
+            if (leftSumm == rightSumm) {
+                result = true;
+            }
+            median++;
+        }
+        return result;
+    }
+
+    private static void printArray(int[] arr) {
+        System.out.print("[");
+        int i = 0;
+        while (i < arr.length) {
+            if (i != 0) {
+                System.out.print(", ");
+            }
+            System.out.print(arr[i]);
+            i++;
+        }
+        System.out.println("]");
     }
 }
