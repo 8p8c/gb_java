@@ -41,6 +41,7 @@ public class Main {
 
         printArray(arr3);
         printMinMax(arr3);
+        System.out.println();
 
 
         printArray(onesAndZeros);
