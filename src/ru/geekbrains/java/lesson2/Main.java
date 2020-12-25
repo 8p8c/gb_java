@@ -39,6 +39,10 @@ public class Main {
         }
         System.out.println();
 
+        printArray(arr3);
+        printMinMax(arr3);
+
+
         printArray(onesAndZeros);
         System.out.println(checkBalance(onesAndZeros));
         printArray(arr2);
@@ -93,6 +97,29 @@ public class Main {
             }
             i++;
         }
+    }
+
+    public static void printMinMax(int[] arr) {
+        if (arr.length < 1) {
+            System.out.println("Ee-ou-ee-ou, I can't use exceptions yet.");
+        }
+        int min = 0;
+        int max = 0;
+        int i = 0;
+        while (i < arr.length) {
+            if (arr[i] < arr[min]) {
+                min = i;
+            }
+            if (arr[i] > arr[max]) {
+                max = i;
+            }
+            i++;
+        }
+        System.out.printf("Min arr[%d] = %d\nMax arr[%d] = %d\n",
+                          min,
+                          arr[min],
+                          max,
+                          arr[max]);
     }
 
     public static boolean checkBalance(int[] arr) {
