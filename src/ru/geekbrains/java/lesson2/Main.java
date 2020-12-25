@@ -50,7 +50,13 @@ public class Main {
         System.out.println(checkBalance(arr2));
         printArray(arr3);
         System.out.println(checkBalance(arr3));
+        System.out.println();
 
+        printArray(arr3);
+        arrayShift(arr3, 2);
+        printArray(arr3);
+        arrayShift(arr3, -3);
+        printArray(arr3);
     }
 
     public static void reverseValArray(int[] arr) {
@@ -149,6 +155,44 @@ public class Main {
             median++;
         }
         return result;
+    }
+
+    public static void arrayShift(int[] arr, int shift) {
+        while (shift != 0) {
+            if (shift < 0) {
+                arrayLeftShift(arr);
+                shift++;
+            } else {
+                arrayRightShift(arr);
+                shift--;
+            }
+        }
+    }
+
+    private static void arrayLeftShift(int[] arr) {
+        if (arr.length == 0 ) {
+            return;
+        }
+        int tmp = arr[0];
+        int i = 1;
+        while (i < arr.length) {
+            arr[i - 1] = arr[i];
+            i++;
+        }
+        arr[arr.length - 1] = tmp;
+    }
+
+    private static void arrayRightShift(int[] arr) {
+        if (arr.length == 0) {
+            return;
+        }
+        int tmp = arr[arr.length - 1];
+        int i = arr.length - 1;
+        while (i > 0) {
+            arr[i] = arr[i - 1];
+            i--;
+        }
+        arr[0] =  tmp;
     }
 
     private static void printArray(int[] arr) {
