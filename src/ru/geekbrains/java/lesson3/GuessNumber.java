@@ -24,9 +24,10 @@ public class GuessNumber {
 
     private static void playLevel(int range, int number, int tryCount) {
         System.out.println("Угадайте число от 0 до " + range);
+        int input_number;
         while (tryCount > 0) {
             tryCount--;
-            int input_number = scanner.nextInt();
+            input_number = scanner.nextInt();
             if (input_number == number) {
                 System.out.println("Вы угадали.");
                 return;
