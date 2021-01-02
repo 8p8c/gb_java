@@ -145,7 +145,59 @@ public class Main {
     }
 
     private static boolean isWonDiag(char[][] playMap, char type) {
-        return false; //STUB
+        int x;
+        int y;
+        int inRow = 0;
+        int shift = WIN_STREAK - SIZE;
+        while (shift <= SIZE - WIN_STREAK) {
+            x = 0;
+            while (x < SIZE) {
+                y = 0;
+                while (y < SIZE) {
+                    if (x - y + shift == 0) {
+                        if (playMap[x][y] == type) {
+                            inRow++;
+                        }
+                        else {
+                            inRow = 0;
+                        }
+                        if (inRow >= WIN_STREAK) {
+                            return true;
+                        }
+                    }
+                    y++;
+                }
+                x++;
+            }
+            shift++;
+        }
+        x = 0;
+        y = 0;
+        inRow = 0;
+        shift = WIN_STREAK - SIZE;
+        while (shift <= SIZE - WIN_STREAK) {
+            x = 0;
+            while (x < SIZE) {
+                y = 0;
+                while (y < SIZE) {
+                    if (x + y + 1 - SIZE + shift == 0) {
+                        if (playMap[x][y] == type) {
+                            inRow++;
+                        }
+                        else {
+                            inRow = 0;
+                        }
+                        if (inRow >= WIN_STREAK) {
+                            return true;
+                        }
+                    }
+                    y++;
+                }
+                x++;
+            }
+            shift++;
+        }
+        return false;
     }
 
     private static void printMap(char[][] playMap) {
@@ -162,7 +214,7 @@ public class Main {
             j = 0;
             System.out.printf("%d ", i + 1);
             while (j < SIZE) {
-                System.out.printf(" %c", playMap[i][j]);
+                System.out.printf(" %c", playMap[j][i]);
                 j++;
             }
             System.out.println();
