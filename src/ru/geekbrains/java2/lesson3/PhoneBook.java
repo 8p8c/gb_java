@@ -2,6 +2,7 @@ package ru.geekbrains.java2.lesson3;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 class PhoneBook {
 	private HashMap<Person, String> book;
@@ -14,7 +15,7 @@ class PhoneBook {
 		this.book.put(new Person(name), phone_number);
 	}
 
-	public void get(String query) {
+	public List<String> get(String query) {
 		LinkedList<String> list = new LinkedList<>();
 
 		this.book.forEach((person, phone_number) -> {
@@ -22,11 +23,6 @@ class PhoneBook {
 					list.add(phone_number);
 				}
 			});
-
-		System.out.print(query + ":");
-		if (!list.isEmpty()) {
-			list.forEach((x) -> System.out.print(" " + x));
-		}
-		System.out.println();
+		return list;
 	}
 }

@@ -2,6 +2,7 @@ package ru.geekbrains.java2.lesson3;
 
 import java.util.TreeMap;
 import java.util.Iterator;;
+import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
@@ -19,9 +20,9 @@ public class Main {
 		pb.add("Smirnov", "8-495-932-29-23");
 		pb.add("Smirnov", "+7-977-987-70-20");
 		pb.add("Golovanov", "8-922-28-23");
-		pb.get("samedov");
-		pb.get("erohin");
-		pb.get("smirnov");
+		print_phones_from_phonebook(pb, "samedov");
+		print_phones_from_phonebook(pb,"erohin");
+		print_phones_from_phonebook(pb, "smirnov");
 	}
 
 	public static TreeMap<String, Integer> count_words (String[] arr) {
@@ -35,5 +36,14 @@ public class Main {
 			}
 		}
 		return result;
+	}
+
+	public static void print_phones_from_phonebook(PhoneBook pb, String name) {
+		List<String> list = pb.get(name);
+		System.out.print(name + ": ");
+		if (!list.isEmpty()) {
+			list.forEach((x) -> System.out.print(" " + x));
+		}
+		System.out.println();
 	}
 }
